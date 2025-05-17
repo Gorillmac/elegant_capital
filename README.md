@@ -26,29 +26,6 @@ Ensure you have a local web server like XAMPP or LAMP installed and running.
 
 Database Setup:
 
-You’ll need to create a MySQL database to store user details, loan requests, and loan status. Here is SQL setup:
-
-sql
-CREATE DATABASE elegantcapital;
-USE elegantcapital;
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(255) NOT NULL,
-    full_name VARCHAR(255) NOT NULL,
-    phone_number VARCHAR(20) NOT NULL,
-    password VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE loans (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    loan_amount DECIMAL(10,2) NOT NULL,
-    return_date DATE NOT NULL,
-    status ENUM('pending', 'approved', 'rejected') NOT NULL DEFAULT 'pending',
-    requested_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id)
-);
-
 How to Run the Project
  download the project files to your local machine.
 
